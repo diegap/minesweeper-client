@@ -1,3 +1,15 @@
+<mat-form-field appearance="fill">
+  <mat-label>User</mat-label>
+  <mat-select [(ngModel)]="selectedUser" name="user">
+    <mat-option *ngFor="let user of users" [value]="user.userName">
+      {{user.userName}}
+    </mat-option>
+  </mat-select>
+</mat-form-field>
+<br/>
+
+<button mat-raised-button (click)="save()">Start!</button>
+
 <mat-grid-list cols="4" rowHeight="2:1">
   <mat-grid-tile>1</mat-grid-tile>
   <mat-grid-tile>2</mat-grid-tile>
