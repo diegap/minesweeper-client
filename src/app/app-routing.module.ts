@@ -1,10 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ApplicationModule } from '@angular/core';
 import { BoardViewComponent } from './board-view/board-view.component';
+import { BoardCreationComponent } from './board-creation/board-creation.component';
 
 const routes: Routes = [
-  { path: 'home', component: ApplicationModule },
+  { path: '', component: BoardCreationComponent },
+  { path: 'home', component: BoardCreationComponent },
   { path: 'user-boards', component: BoardViewComponent }
 ];
 

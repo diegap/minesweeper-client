@@ -15,11 +15,13 @@ import { HttpClientModule } from '@angular/common/http';
 import {MatSliderModule} from '@angular/material/slider';
 import { BoardViewComponent } from './board-view/board-view.component'; 
 import { Routes, RouterModule, ActivatedRoute } from '@angular/router';
+import { BoardCreationComponent } from './board-creation/board-creation.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BoardViewComponent
+    BoardViewComponent,
+    BoardCreationComponent
   ],
   imports: [
     BrowserModule,

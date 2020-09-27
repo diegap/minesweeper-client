@@ -14,9 +14,13 @@ export class BoardViewComponent implements OnInit {
   constructor(private userDataService: UserDataService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    const username = this.route.snapshot.paramMap.get('id');
-    const boardId = this.route.snapshot.paramMap.get('id');
-    this.userDataService.findBoard(username, boardId)
+    const username = this.route.snapshot.queryParamMap.get('user-name');
+    const boardId = this.route.snapshot.queryParamMap.get('board-id');
+
+    this.userDataService.findBoard(username, boardId).subscribe(data => {
+      this.showSuccess(data),
+      this.showError
+    });
   }
   
   viewBoard = new ViewBoard({
@@ -25,5 +29,13 @@ export class BoardViewComponent implements OnInit {
     status: '',
     elapsedTimeInSeconds: 0
   })
-    
+ 
+  showSuccess = (data) => {
+    console.log(data)
+  }
+
+  showError = (err) => {
+    console.error(err)
+  }
+
 }
