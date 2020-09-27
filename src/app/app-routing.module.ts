@@ -6,7 +6,7 @@ import { BoardCreationComponent } from './board-creation/board-creation.componen
 const routes: Routes = [
   { path: '', component: BoardCreationComponent },
   { path: 'home', component: BoardCreationComponent },
-  { path: 'user-boards', component: BoardViewComponent }
+  { path: 'users/:id', component: BoardViewComponent }
 ];
 
 @NgModule({

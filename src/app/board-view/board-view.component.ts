@@ -14,7 +14,7 @@ export class BoardViewComponent implements OnInit {
   constructor(private userDataService: UserDataService, private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit(): void {
-    const username = this.route.snapshot.queryParamMap.get('user-name');
+    const username = this.route.snapshot.paramMap.get('id');
     const boardId = this.route.snapshot.queryParamMap.get('board-id');
 
     this.userDataService.findBoard(username, boardId).subscribe(data => {

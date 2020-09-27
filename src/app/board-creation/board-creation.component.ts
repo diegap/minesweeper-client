@@ -43,7 +43,7 @@ export class BoardCreationComponent implements OnInit {
   }
 
   showSuccess = (data) => {
-    this.router.navigate(['/user-boards'], { queryParams: { 'user-name': this.selectedUser, 'board-id': data['boardId'] } });
+    this.router.navigate(['/users/', this.selectedUser], { queryParams: { 'board-id': data['boardId'] } });
   }
 
   showError = (err) => {
