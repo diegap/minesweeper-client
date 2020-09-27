@@ -8,7 +8,23 @@
 </mat-form-field>
 <br/>
 
-<button mat-raised-button (click)="save()">Start!</button>
+<form class="board-form">
+  <mat-form-field class="example-margin">
+      <mat-label>Rows</mat-label>
+      <input matInput type="number" [(ngModel)]="boardDraft.rows" name="rows">
+  </mat-form-field>
+  <mat-form-field class="example-margin">
+      <mat-label>Cols</mat-label>
+      <input matInput type="number" [(ngModel)]="boardDraft.cols" name="cols">
+  </mat-form-field>
+  <mat-form-field class="example-margin">
+      <mat-label>Mines</mat-label>
+      <input matInput type="number" [(ngModel)]="boardDraft.mines" name="mines">
+  </mat-form-field>
+</form>
+
+
+<button mat-raised-button (click)="start()">Start!</button>
 
 <mat-grid-list cols="4" rowHeight="2:1">
   <mat-grid-tile>1</mat-grid-tile>

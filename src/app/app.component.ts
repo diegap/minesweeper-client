@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { User } from './model/Domain';
+import { User, Board, BoardDraft } from './model/Domain';
 import { UserDataService } from './user-data.service';
 
 @Component({
@@ -14,6 +14,7 @@ export class AppComponent {
 
   title = 'minesweeper-client';
 
+  // predefined users
   users: User[] = [
     {userName: 'diegap'},
     {userName: 'elenis'},
@@ -21,8 +22,17 @@ export class AppComponent {
   ];
   selectedUser: string;
 
-  save(){
-    this.userDataService.save(new User({"userName": this.selectedUser})).subscribe(this.showSuccess, this.showError);
+  // default values for starting game
+  boardDraft = new BoardDraft({
+    rows : 3,
+    cols: 3,
+    mines: 1
+  })
+
+  board: Board = new Board()
+
+  start(){
+    this.userDataService.save(new User({"userName": this.selectedUser}), this.boardDraft).subscribe(this.showSuccess, this.showError);
   }
 
   showSuccess = () => {}
