@@ -14,7 +14,7 @@ import {MatInputModule} from '@angular/material/input';
 import { HttpClientModule } from '@angular/common/http';
 import {MatSliderModule} from '@angular/material/slider';
 import { BoardViewComponent } from './board-view/board-view.component'; 
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, ActivatedRoute } from '@angular/router';
 
 @NgModule({
   declarations: [

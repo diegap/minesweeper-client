@@ -31,4 +31,8 @@ export class UserDataService {
       .pipe(mergeMap(_ => this.http.post(this.usersPath + "/" + user.userName + this.boardsPath, boardDraft, {})));
   }
   
+  findBoard(username: string, boardId: string): Observable<{}> {
+    return this.http.get(this.apiServer + "/users/"+username+"/boards/"+boardId)
+  }
+
 }
