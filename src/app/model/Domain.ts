@@ -40,7 +40,8 @@ export class ViewBoard {
     boardId: string;
     rows: [Row];
     status: string;
-    elapsedTimeInSeconds: number
+    elapsedTimeInSeconds: number;
+    length: number
 
     constructor(values: any = {}) {
         Object.assign(this, values);
