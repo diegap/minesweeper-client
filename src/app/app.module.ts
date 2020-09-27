@@ -12,11 +12,14 @@ import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {MatButtonModule} from '@angular/material/button'; 
 import {MatInputModule} from '@angular/material/input'; 
 import { HttpClientModule } from '@angular/common/http';
-import {MatSliderModule} from '@angular/material/slider'; 
+import {MatSliderModule} from '@angular/material/slider';
+import { BoardViewComponent } from './board-view/board-view.component'; 
+import { Routes, RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BoardViewComponent
   ],
   imports: [
     BrowserModule,
@@ -30,7 +33,8 @@ import {MatSliderModule} from '@angular/material/slider';
     MatButtonModule,
     HttpClientModule,
     MatInputModule,
-    MatSliderModule
+    MatSliderModule,
+    RouterModule
   ],
   providers: [],
   bootstrap: [AppComponent]

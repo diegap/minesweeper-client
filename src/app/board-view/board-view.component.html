@@ -1,0 +1,9 @@
+<mat-grid-list cols="{{viewBoard.length}}" rowHeight="2:1">
+
+    <ng-template ngFor let-row [ngForOf]="viewBoard.rows">
+        <ng-template ngFor let-col [ngForOf]="row.cols">    
+            <mat-grid-tile>{{col.x}}, {{col.y}}</mat-grid-tile>
+        </ng-template>
+    </ng-template>
+
+</mat-grid-list>

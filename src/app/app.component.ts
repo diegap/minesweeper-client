@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { User, Board, BoardDraft, ViewBoard } from './model/Domain';
 import { UserDataService } from './user-data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,13 +9,9 @@ import { UserDataService } from './user-data.service';
   styleUrls: ['./app.component.css'],
   providers: [UserDataService]
 })
-export class AppComponent implements OnInit{
+export class AppComponent{
 
-  constructor(private userDataService: UserDataService) { }
-
-  ngOnInit() {
-    // retrieve boards
-  }
+  constructor(private userDataService: UserDataService, private router: Router) { }
 
   title = 'minesweeper-client';
 
@@ -33,24 +30,21 @@ export class AppComponent implements OnInit{
     mines: 1
   })
 
-  viewBoard = new ViewBoard({
-    boardId: '',
-    rows: [],
-    status: '',
-    elapsedTimeInSeconds: 0
-  })
-
   start(){
     this.userDataService
       .save(new User({"userName": this.selectedUser}), this.boardDraft)
-      .subscribe(
-        this.showSuccess, 
+      .subscribe((data) => {
+        this.showSuccess(data),
         this.showError
-      );
+     });
   }
 
-  showSuccess = () => {}
+  showSuccess = (data) => {
+    this.router.navigate(['/user-boards'], { queryParams: { 'user-name': this.selectedUser, 'board-id': data['boardId'] } });
+  }
 
-  showError = (err) => {}
+  showError = (err) => {
+    console.error(err)
+  }
 
 }

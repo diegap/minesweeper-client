@@ -10,8 +10,8 @@ import { User, BoardDraft } from './model/Domain';
 export class UserDataService {
 
   private http: HttpClient;
-  //private apiServer = 'http://localhost:8080'
-  private apiServer = 'https://minesweeper-kata.herokuapp.com'
+  private apiServer = 'http://localhost:8080'
+  //private apiServer = 'https://minesweeper-kata.herokuapp.com'
 
   private adminUsersPath = this.apiServer + '/admin/users';
   private usersPath = this.apiServer + '/users';
