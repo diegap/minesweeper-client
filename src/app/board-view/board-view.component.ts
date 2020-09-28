@@ -57,6 +57,7 @@ export class BoardViewComponent implements OnInit {
     
     this.viewBoard.rows = this.mapRows(data['rows']);
     this.viewBoard.status = data['status'];
+    this.viewBoard.elapsedTimeInSeconds = data['elapsedTimeInSeconds'];
 
     console.log("parsed rows", this.viewBoard.rows);
    

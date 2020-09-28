@@ -1,24 +1,24 @@
 <h1 mat-dialog-title *ngIf="viewBoard.status=='WIN'">YOU WIN!</h1>
 <h1 mat-dialog-title *ngIf="viewBoard.status=='LOSE'">YOU LOSE!</h1>
+<h3 mat-dialog-title *ngIf="viewBoard.status=='LOSE' || viewBoard.status=='WIN'">Elapsed time: {{viewBoard.elapsedTimeInSeconds}} seconds</h3>
 
 <label>Board of {{username}}</label>
 
 <mat-grid-list cols="{{viewBoard.length}}" rowHeight="2:1">
      <ng-container *ngFor="let item of viewBoard.rows">
           <ng-container *ngFor="let subItem of item.cols">
-                    <mat-grid-tile>
-                         {{subItem.value}}
-                         
-                         <mat-form-field appearance="fill">
-                                   <mat-label>Action</mat-label>
-                                   <mat-select name="action" [(ngModel)]="selectedAction" 
-                                        (selectionChange)="actuate(subItem.x, subItem.y)">
-                                        <mat-option *ngFor="let action of actions" [value]="action">
-                                        {{action}}
-                                        </mat-option>
-                                   </mat-select>
-                              </mat-form-field>
-                    </mat-grid-tile>
+               <mat-grid-tile>
+                    <strong>{{subItem.value}}</strong>
+                    <mat-form-field appearance="outline">
+                         <mat-label>Action</mat-label>
+                         <mat-select name="action" [(ngModel)]="selectedAction" 
+                              (selectionChange)="actuate(subItem.x, subItem.y)">
+                              <mat-option *ngFor="let action of actions" [value]="action">
+                              {{action}}
+                              </mat-option>
+                         </mat-select>
+                    </mat-form-field>
+               </mat-grid-tile>
           </ng-container>
      </ng-container>
 </mat-grid-list>
