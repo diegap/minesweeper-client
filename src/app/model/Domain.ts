@@ -21,7 +21,7 @@ export class Board {
 export class Col {
     x: string;
     y: string;
-    vale: string
+    value: string
 
     constructor(values: any = {}) {
         Object.assign(this, values);

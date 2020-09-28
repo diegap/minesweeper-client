@@ -30,6 +30,24 @@ export class BoardViewComponent implements OnInit {
     elapsedTimeInSeconds: 0
   })
  
+  username = this.route.snapshot.paramMap.get('id');
+  actions: string[] = ["reveal", "flag", "unflag", "question", "unquestion"]
+  selectedAction: string;
+
+  actuate(x:string, y:string){
+    const username = this.route.snapshot.paramMap.get('id');
+    const boardId = this.route.snapshot.queryParamMap.get('board-id');
+    this.userDataService.actuate(username, boardId, x, y, this.selectedAction)
+      .subscribe(data => {
+        this.refresh(),
+        (err) => console.error(err)
+      });
+  }
+
+  refresh(){
+    window.location.reload();
+  }
+
   showSuccess = (data) => {
     console.log(data);
     this.viewBoard.boardId = data['boardId'];
@@ -63,13 +81,18 @@ export class BoardViewComponent implements OnInit {
         let col: Col = new Col({
           x: data['x'],
           y: data['y'],
-          value: data['value'] 
+          value: this.mapColValue(data['value']) 
         });
         cols.push(col);
     });
 
     return cols;
    
+  }
+
+  mapColValue(colData: string): string {
+    if(colData == "-1") return "MINE";
+    return colData;
   }
 
   showError = (err) => {

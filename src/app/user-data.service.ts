@@ -35,4 +35,18 @@ export class UserDataService {
     return this.http.get(this.apiServer + "/users/"+username+"/boards/"+boardId)
   }
 
+  actuate(username: string, boardId: string, x:string, y:string, action: string){
+    let httpOptions = {
+      headers: new HttpHeaders({
+        'Access-Control-Allow-Origin': '*' 
+      })
+    }
+    let command = {
+      'x': x,
+      'y': y,
+      'command': action
+    }
+    return this.http.put(this.usersPath+'/'+username+'/boards/'+boardId+'/cells', command);
+  }
+
 }
