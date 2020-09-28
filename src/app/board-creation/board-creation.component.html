@@ -23,4 +23,4 @@
     </mat-form-field>
 </form>
 
-<button mat-raised-button (click)="start()">Start!</button>
+<button mat-raised-button (click)="start()" [disabled]="!selectedUser">Start!</button>
