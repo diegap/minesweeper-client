@@ -29,7 +29,7 @@ export class Col {
 }
 
 export class Row {
-    cols: [Col]
+    cols: Col[]
 
     constructor(values: any = {}) {
         Object.assign(this, values);
@@ -38,7 +38,7 @@ export class Row {
 
 export class ViewBoard {
     boardId: string;
-    rows: [Row];
+    rows: Row[];
     status: string;
     elapsedTimeInSeconds: number;
     length: number
