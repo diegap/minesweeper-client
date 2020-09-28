@@ -1,12 +1,7 @@
-<div>
-     <ol>
-          <li *ngFor="let item of viewBoard.rows"> 
-               <div>row</div> 
-               <ol>
-                    <li *ngFor="let subItem of item.cols"> 
-                         <div>{{subItem.value}}</div> 
-                    </li>
-               </ol>
-          </li>
-     </ol>
-</div>
+<mat-grid-list cols="{{viewBoard.length}}" rowHeight="2:1">
+     <ng-container *ngFor="let item of viewBoard.rows">
+               <ng-container *ngFor="let subItem of item.cols">
+                         <mat-grid-tile>{{subItem.value}}</mat-grid-tile>
+               </ng-container>
+     </ng-container>
+</mat-grid-list>
